@@ -1,0 +1,10 @@
+acpi
+feh
+git
+htop
+man
+neovim
+openssh
+stow
+zsh
+base-devel
