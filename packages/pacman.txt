@@ -8,3 +8,4 @@ openssh
 stow
 zsh
 base-devel
+picom
