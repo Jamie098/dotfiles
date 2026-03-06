@@ -6,12 +6,14 @@ set -e
 SRCDIR="$HOME/.local/src"
 GITHUB="git@github.com:Jamie098"
 
+mkdir -p "$SRCDIR"
+
 # Install pacman packages
 sudo pacman -S --needed - < packages/pacman.txt
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git "$SRCDIR/yay"
-cd "$SRCDIR/yay" && makepkg -si --conconfirm
+cd "$SRCDIR/yay" && makepkg -si --noconfirm
 cd -
 
 # Install yay packages
