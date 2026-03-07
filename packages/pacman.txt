@@ -9,3 +9,4 @@ stow
 zsh
 base-devel
 unzip
+tree
