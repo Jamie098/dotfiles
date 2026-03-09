@@ -4,7 +4,7 @@
 set -e
 
 SRCDIR="$HOME/.local/src"
-GITHUB="git@github.com:Jamie098"
+GITHUB="https://github.com/Jamie098"
 
 mkdir -p "$SRCDIR"
 
