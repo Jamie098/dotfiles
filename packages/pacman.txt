@@ -10,3 +10,5 @@ zsh
 base-devel
 unzip
 tree
+dunst
+libnotify
