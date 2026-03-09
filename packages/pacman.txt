@@ -12,3 +12,4 @@ unzip
 tree
 dunst
 libnotify
+npm
