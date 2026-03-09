@@ -27,7 +27,6 @@ for repo in dwm st dmenu; do
 done
 
 # Get dotfiles
-git clone "$GITHUB/dotfiles.git" "$SRCDIR/dotfiles"
 cd "$SRCDIR/dotfiles" && stow --target="$HOME" .
 
 echo "Done. Manual steps remaining:"
