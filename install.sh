@@ -20,9 +20,9 @@ cd -
 yay -S --needed - < packages/yay.txt
 
 # Get suckless components
-for repo ln dwm st dmenu; do
+for repo in dwm st dmenu; do
 	git clone "$GITHUB/$repo.git" "$SRCDIR/$repo"
-	cd "$SRCDIR/$repo" && sudo make clean install
+	cd "$SRCDIR/$repo" && sudo make install
 	cd -
 done
 

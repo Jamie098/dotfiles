@@ -3,6 +3,7 @@ feh
 git
 htop
 man
+vi
 neovim
 openssh
 stow
@@ -13,3 +14,10 @@ tree
 dunst
 libnotify
 npm
+xorg-xinit
+xorg-server
+libx11
+libxft
+libxinerama
+dbus
+qutebrowser
