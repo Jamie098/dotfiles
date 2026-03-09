@@ -1,0 +1,52 @@
+#!/bin/sh
+
+choice=$(echo -e "System Update\nSystem Cleanup\nRestow Dotfiles\nRebuild DWM\nRebuild ST\nRebuild Dmenu" | dmenu -l 6 -p "Run:")
+
+case "$choice" in
+	"System Update")
+		notify-send "System Update" "Starting..."
+		sudo pacman -Syu
+		notify-send "System Update" "Done" || \
+		notify-send -u critical "System Update" "Failed"
+		;;
+
+	"System Cleanup")
+	    notify-send "System Cleanup" "Starting..."
+	    ORPHANS=$(pacman -Qtdq)
+	    if [ -z "$ORPHANS" ]; then
+		notify-send "System Cleanup" "Nothing to remove"
+	    else
+		sudo pacman -Rns $ORPHANS && \
+		notify-send "System Cleanup" "Done" || \
+		notify-send -u critical "System Cleanup" "Failed"
+	    fi
+	    ;;
+
+	    "Restow Dotfiles")
+    notify-send "Restow" "Starting..."
+    cd ~/.local/src/dotfiles && stow --target="$HOME" -D . && stow --target="$HOME" . && \
+    notify-send "Restow" "Done" || \
+    notify-send -u critical "Restow" "Failed"
+    ;;
+
+  "Rebuild DWM")
+    notify-send "Rebuild DWM" "Starting..."
+    cd ~/.local/src/dwm && sudo make clean install && \
+    notify-send "Rebuild DWM" "Done" || \
+    notify-send -u critical "Rebuild DWM" "Failed"
+    ;;
+
+  "Rebuild ST")
+    notify-send "Rebuild ST" "Starting..."
+    cd ~/.local/src/st && sudo make clean install && \
+    notify-send "Rebuild ST" "Done" || \
+    notify-send -u critical "Rebuild ST" "Failed"
+    ;;
+
+  "Rebuild Dmenu")
+    notify-send "Rebuild Dmenu" "Starting..."
+    cd ~/.local/src/dmenu && sudo make clean install && \
+    notify-send "Rebuild Dmenu" "Done" || \
+    notify-send -u critical "Rebuild Dmenu" "Failed"
+    ;;
+esac
