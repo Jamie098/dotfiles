@@ -3,6 +3,8 @@ wayland
 wlroots0.19
 wayland-protocols
 
+foot
+
 base-devel
 git
 zsh
