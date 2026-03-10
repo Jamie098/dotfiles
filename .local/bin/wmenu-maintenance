@@ -1,0 +1,38 @@
+#!/bin/sh
+
+choice=$(echo -e "System Update\nSystem Cleanup\nRestow Dotfiles\nRebuild DWL" | wmenu -l 6 -p "Run:")
+
+case "$choice" in
+	"System Update")
+		notify-send "System Update" "Starting..."
+		sudo pacman -Syu --no-confirm
+		notify-send "System Update" "Done" || \
+		notify-send -u critical "System Update" "Failed"
+		;;
+
+	"System Cleanup")
+    notify-send "System Cleanup" "Starting..."
+    ORPHANS=$(pacman -Qtdq --no-confirm)
+    if [ -z "$ORPHANS" ]; then
+      notify-send "System Cleanup" "Nothing to remove"
+    else
+      sudo pacman -Rns $ORPHANS --no-confirm && \
+      notify-send "System Cleanup" "Done" || \
+      notify-send -u critical "System Cleanup" "Failed"
+    fi
+    ;;
+
+  "Restow Dotfiles")
+    notify-send "Restow" "Starting..."
+    cd ~/.local/src/dotfiles && stow --target="$HOME" -D . && stow --target="$HOME" . && \
+    notify-send "Restow" "Done" || \
+    notify-send -u critical "Restow" "Failed"
+    ;;
+
+  "Rebuild DWL")
+    notify-send "Rebuild DWL" "Starting..."
+    cd ~/.local/src/dwl && sudo make clean install && \
+    notify-send "Rebuild DWL" "Done" || \
+    notify-send -u critical "Rebuild DWL" "Failed"
+    ;;
+esac
