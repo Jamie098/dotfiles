@@ -4,8 +4,11 @@ wlroots0.19
 wayland-protocols
 
 foot
-waybar
 wmenu
+dunst
+meson
+cairo
+pango
 
 base-devel
 git
@@ -21,5 +24,4 @@ unzip
 tree
 
 qutebrowser
-dunst
 
