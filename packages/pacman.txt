@@ -5,6 +5,7 @@ wayland-protocols
 
 foot
 waybar
+wmenu
 
 base-devel
 git
