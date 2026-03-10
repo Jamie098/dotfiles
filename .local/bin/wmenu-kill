@@ -1,11 +1,11 @@
 #!/bin/sh
-process=$(ps -e -o pid,comm --no-headers | dmenu -l 20 -p "kill:")
+process=$(ps -e -o pid,comm --no-headers | wmenu -l 20 -p "kill:")
 [ -z "$process" ] && exit 0
 
 pid=$(echo "$process" | awk '{print $1}')
 name=$(echo "$process" | awk '{print $2}')
 
-signal=$(printf "TERM\nKILL" | dmenu -p "signal ($name):")
+signal=$(printf "TERM\nKILL" | wmenu -p "signal ($name):")
 [ -z "$signal" ] && exit 0
 
 kill -"$signal" "$pid"
