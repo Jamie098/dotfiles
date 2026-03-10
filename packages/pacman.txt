@@ -4,6 +4,7 @@ wlroots0.19
 wayland-protocols
 
 foot
+waybar
 
 base-devel
 git
