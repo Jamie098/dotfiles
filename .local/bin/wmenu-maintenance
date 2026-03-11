@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(echo -e "System Update\nSystem Cleanup\nRestow Dotfiles\nRebuild DWL" | wmenu -l 6 -p "Run:")
+choice=$(echo -e "System Update\nSystem Cleanup\nRestow Dotfiles\nRebuild DWL\nRebuild Somebar\nRebuild Someblocks" | wmenu -l 6 -p "Run:")
 
 case "$choice" in
 	"System Update")
@@ -34,5 +34,23 @@ case "$choice" in
     cd ~/.local/src/dwl && sudo make clean install && \
     notify-send "Rebuild DWL" "Done" || \
     notify-send -u critical "Rebuild DWL" "Failed"
+    ;;
+
+  "Rebuild Somebar")
+    notify-send "Rebuild Somebar" "Starting..."
+    cd ~/.local/src/somebar && \
+      cp src/config.def.hpp src/config.hpp && \
+      meson setup build && \
+      ninja -C build && \
+      sudo ninja -C build install && \
+    notify-send "Rebuild Somebar" "Done" || \
+    notify-send -u critical "Rebuild Somebar" "Failed"
+    ;;
+
+  "Rebuild Someblocks")
+    notify-send "Rebuild Someblocks" "Starting..."
+    cd ~/.local/src/someblocks && sudo make clean install && \
+    notify-send "Rebuild Someblocks" "Done" || \
+    notify-send -u critical "Rebuild Someblocks" "Failed"
     ;;
 esac
