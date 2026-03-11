@@ -4,4 +4,4 @@ vim.opt.expandtab = true
 
 require("config.lazy")
 
-vim.lsp.enable({ "lua_ls", "clangd" })
+vim.lsp.enable({ "lua_ls", "clangd", "bashls" })
