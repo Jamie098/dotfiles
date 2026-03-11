@@ -20,7 +20,7 @@ cd -
 yay -S --needed - < packages/yay.txt
 
 # Get suckless components
-for repo in dwl; do
+for repo in dwl somebar someblocks; do
 	git clone "$GITHUB/$repo.git" "$SRCDIR/$repo"
 	cd "$SRCDIR/$repo" && sudo make install
 	cd -
