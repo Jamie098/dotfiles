@@ -1,2 +1,2 @@
 #!/bin/bash
-./set-rand-wallpaper
+/home/jamie/.local/bin/set-rand-wallpaper

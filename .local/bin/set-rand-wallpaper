@@ -5,4 +5,4 @@ count=${#files[@]}
 randIndex=$(($RANDOM % count))
 
 background=${files[$randIndex]}
-swaybg -i $background 
+swaybg -i "$background" -m fill 
