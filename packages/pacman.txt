@@ -24,4 +24,5 @@ unzip
 tree
 
 qutebrowser
+swaybg
 
