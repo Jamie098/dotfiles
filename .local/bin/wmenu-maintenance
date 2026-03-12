@@ -4,6 +4,7 @@ choice=$(echo -e "Git Push All\nRestow Dotfiles\nRebuild DWL\nRebuild Somebar\nR
 
 case "$choice" in
   "Git Push All")
+    notify-send "Git" "Pushing to origin"
     cd ~/.local/src/dotfiles
     git push
     cd ~/.local/src/dwl
