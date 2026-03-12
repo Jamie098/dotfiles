@@ -3,7 +3,7 @@
 choice=$(echo -e "Git Push All\nRestow Dotfiles\nRebuild DWL\nRebuild Somebar\nRebuild Someblocks" | wmenu -l 5 -p "Run:")
 
 case "$choice" in
-  "Restow Dotfiles")
+  "Git Push All")
     cd ~/.local/src/dotfiles
     git push
     cd ~/.local/src/dwl
