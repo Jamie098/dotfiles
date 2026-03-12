@@ -1,25 +1,17 @@
 #!/bin/sh
 
-choice=$(echo -e "System Update\nSystem Cleanup\nRestow Dotfiles\nRebuild DWL\nRebuild Somebar\nRebuild Someblocks" | wmenu -l 6 -p "Run:")
+choice=$(echo -e "Git Push All\nRestow Dotfiles\nRebuild DWL\nRebuild Somebar\nRebuild Someblocks" | wmenu -l 5 -p "Run:")
 
 case "$choice" in
-	"System Update")
-		notify-send "System Update" "Starting..."
-		sudo pacman -Syu --no-confirm
-		notify-send "System Update" "Done" || \
-		notify-send -u critical "System Update" "Failed"
-		;;
-
-	"System Cleanup")
-    notify-send "System Cleanup" "Starting..."
-    ORPHANS=$(pacman -Qtdq --no-confirm)
-    if [ -z "$ORPHANS" ]; then
-      notify-send "System Cleanup" "Nothing to remove"
-    else
-      sudo pacman -Rns $ORPHANS --no-confirm && \
-      notify-send "System Cleanup" "Done" || \
-      notify-send -u critical "System Cleanup" "Failed"
-    fi
+  "Restow Dotfiles")
+    cd ~/.local/src/dotfiles
+    git push
+    cd ~/.local/src/dwl
+    git push
+    cd ~/.local/src/somebar
+    git push
+    cd ~/.local/src/someblocks
+    git push
     ;;
 
   "Restow Dotfiles")
