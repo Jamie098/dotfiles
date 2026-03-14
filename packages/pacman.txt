@@ -22,7 +22,8 @@ acpi
 htop
 unzip
 tree
+swaybg
+noto-fonts-emoji
+ttf-nerd-fonts-symbols
 
 qutebrowser
-swaybg
-
