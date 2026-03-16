@@ -25,5 +25,7 @@ tree
 swaybg
 noto-fonts-emoji
 ttf-nerd-fonts-symbols
+libnotify
 
 qutebrowser
+syncthing
