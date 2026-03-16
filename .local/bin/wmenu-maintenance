@@ -1,20 +1,8 @@
 #!/bin/sh
 
-choice=$(echo -e "Git Push All\nRestow Dotfiles\nRebuild DWL\nRebuild Somebar\nRebuild Someblocks" | wmenu -l 5 -p "Run:")
+choice=$(echo -e "Restow Dotfiles\nRebuild DWL\nRebuild Somebar\nRebuild Someblocks" | wmenu -l 4 -p "Run:")
 
 case "$choice" in
-  "Git Push All")
-    notify-send "Git" "Pushing to origin"
-    cd ~/.local/src/dotfiles
-    git push
-    cd ~/.local/src/dwl
-    git push
-    cd ~/.local/src/somebar
-    git push
-    cd ~/.local/src/someblocks
-    git push
-    ;;
-
   "Restow Dotfiles")
     notify-send "Restow" "Starting..."
     cd ~/.local/src/dotfiles && stow --target="$HOME" -D . && stow --target="$HOME" . && \
