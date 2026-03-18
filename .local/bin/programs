@@ -1,0 +1,13 @@
+#!/bin/bash
+
+choice=$(echo -e "Qute\nCalibre" | wmenu -l 2 -p "Start:")
+
+case "$choice" in
+  "Qute")
+    qutebrowser&
+    ;;
+  "Calibre")
+    calibre&
+    ;;
+
+esac
