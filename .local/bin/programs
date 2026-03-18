@@ -1,13 +1,21 @@
 #!/bin/bash
 
-choice=$(echo -e "Qute\nCalibre" | wmenu -l 2 -p "Start:")
+choice=$(echo -e "Qute\nfff\nNicotine\nPicard\nCalibre" | wmenu -l 4 -p "Start:")
 
 case "$choice" in
   "Qute")
-    qutebrowser&
+    qutebrowser
+    ;;
+  "fff")
+    fff 
+    ;;
+  "Nicotine")
+    firejail --noprofile --whitelist=/mnt/drive/music --noroot --seccomp nicotine
+    ;;
+  "Picard")
+    picard 
     ;;
   "Calibre")
-    calibre&
+    calibre
     ;;
-
 esac

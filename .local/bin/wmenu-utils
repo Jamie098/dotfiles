@@ -1,10 +1,12 @@
 #!/bin/bash
 
-choice=$(echo -e "Random Wallpaper" | wmenu -l 1 -p "Run:")
+choice=$(echo -e "Random Wallpaper\nProcess Music" | wmenu -l 2 -p "Run:")
 
 case "$choice" in
   "Random Wallpaper")
     /home/jamie/.local/bin/set-rand-wallpaper &
     ;;
-
+  "Process Music")
+    /home/jamie/.local/bin/process-music
+    ;;
 esac

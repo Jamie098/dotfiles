@@ -31,3 +31,5 @@ wlr-randr
 
 qutebrowser
 syncthing
+clamav
+
