@@ -1,0 +1,10 @@
+#!/bin/bash
+
+choice=$(echo -e "Random Wallpaper" | wmenu -l 1 -p "Run:")
+
+case "$choice" in
+  "Random Wallpaper")
+    /home/jamie/.local/bin/set-rand-wallpaper &
+    ;;
+
+esac
