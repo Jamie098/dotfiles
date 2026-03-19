@@ -1,21 +1,25 @@
 #!/bin/bash
 
-choice=$(echo -e "Qute\nfff\nNicotine\nPicard\nCalibre" | wmenu -l 4 -p "Start:")
+apps=('qutebrowser' 'fff' 'Nicotine' 'Calibre')
+installed=()
 
-case "$choice" in
-  "Qute")
-    qutebrowser
-    ;;
-  "fff")
-    fff 
-    ;;
-  "Nicotine")
-    firejail --noprofile --whitelist=/mnt/drive/music --noroot --seccomp nicotine
-    ;;
-  "Picard")
-    picard 
-    ;;
-  "Calibre")
-    calibre
-    ;;
-esac
+for app in "${apps[@]}"; do
+  if pacman -Q $app &>/dev/null; then
+    found+=("$app")
+  fi
+done
+
+installedString=$( IFS=$'\n'; echo "${found[*]}" )
+choice=$(echo -e "$installedString" | wmenu -l ${#installed[@]} -p "Start:")
+
+if [ "$choice" == "fff" ]; then
+  foot fff
+  exit 0
+fi
+
+if [ "$choice" == "fff" ]; then
+  firejail --noprofile --whitelist=/mnt/drive/music --noroot --seccomp nicotine
+  exit 0
+fi
+
+$choice
