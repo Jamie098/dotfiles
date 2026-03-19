@@ -6,15 +6,17 @@ fi
 
 /home/jamie/.local/bin/set-rand-wallpaper &
 
-sudo pacman -Syu --no-confirm
+sudo pacman -S --needed --noconfirm - < /home/jamie/.local/src/dotfiles/packages/pacman.txt
+
+sudo pacman -Syu --noconfirm
 notify-send "System Update" "Done" || \
 notify-send -u critical "System Update" "Failed"
 
-ORPHANS=$(pacman -Qtdq --no-confirm)
+ORPHANS=$(pacman -Qtdq --noconfirm)
 if [ -z "$ORPHANS" ]; then
   notify-send "System Cleanup" "Nothing to remove"
 else
-  sudo pacman -Rns $ORPHANS --no-confirm && \
+  sudo pacman -Rns $ORPHANS --noconfirm && \
   notify-send "System Cleanup" "Done" || \
   notify-send -u critical "System Cleanup" "Failed"
 fi

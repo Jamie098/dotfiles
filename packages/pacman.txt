@@ -26,7 +26,7 @@ swaybg
 noto-fonts-emoji
 ttf-nerd-fonts-symbols
 libnotify
-fast-fetch
+fastfetch
 wlr-randr
 
 qutebrowser
