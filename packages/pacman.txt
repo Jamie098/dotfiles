@@ -32,4 +32,4 @@ wlr-randr
 qutebrowser
 syncthing
 clamav
-
+rbw
