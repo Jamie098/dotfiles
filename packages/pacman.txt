@@ -28,6 +28,7 @@ ttf-nerd-fonts-symbols
 libnotify
 fastfetch
 wlr-randr
+wl-clipboard
 
 qutebrowser
 syncthing
