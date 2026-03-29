@@ -1,23 +1,22 @@
 #!/bin/bash
 
-apps=('qutebrowser' 'fff' 'proton-pass' 'nicotine' 'calibre')
+apps=('qutebrowser' 'ferrosonic' 'alsamixer')
 installed=()
+declare -A needs_term
 
 for app in "${apps[@]}"; do
   if pacman -Q "$app" &>/dev/null; then
     installed+=("$app")
+  elif which "$app" &>/dev/null; then
+    installed+=("$app")
+    needs_term["$app"]=1
   fi
 done
 
 choice=$(printf '%s\n' "${installed[@]}" | wmenu -l "${#installed[@]}" -p "Run")
 
-if [ "$choice" == "fff" ]; then
-  foot fff
-  exit 0
-fi
-
-if [ "$choice" == "nicotine" ]; then
-  firejail --noprofile --whitelist=/mnt/drive/music --noroot --seccomp nicotine
+if [[ ${needs_term[$choice]} == 1 ]]; then
+  foot -e "$choice" 
   exit 0
 fi
 
