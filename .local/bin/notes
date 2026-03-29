@@ -1,3 +1,13 @@
 #!/bin/bash
 
+NOTES_DIR="$HOME/notes"
+existing_notes=$(ls "$NOTES_DIR" -t)
+notes=("" "${existing_notes[@]}")
 
+choice=$(printf '%s\n' "${notes[@]}" | wmenu -l 5 -p "note")
+
+if [ -z "$choice" ]; then
+  nvim "$NOTES_DIR/$(date).txt"
+else
+  foot nvim "$NOTES_DIR/$choice"
+fi
