@@ -38,7 +38,4 @@ cd "$SRCDIR/dotfiles" && stow --target="$HOME" .
 read -p "Email for ssh-keygen" email
 ssh-keygen -t ed25519 -C "$email"
 
-# Install ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 echo "Install complete"
