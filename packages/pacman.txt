@@ -29,6 +29,9 @@ libnotify
 fastfetch
 wlr-randr
 wl-clipboard
+mpv
+pipewire
+wireplumber
 
 qutebrowser
 syncthing
