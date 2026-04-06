@@ -24,5 +24,10 @@ return {
       -- optional but recommended
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     }
+  },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
   }
 }
