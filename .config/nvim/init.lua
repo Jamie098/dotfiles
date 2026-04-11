@@ -7,8 +7,10 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.wo.relativenumber = true
 
-
 vim.g.mapleader = " "
+
+vim.o.autocomplete = true
+vim.o.completeopt = 'menu,menuone,popup'
 
 -- Require
 require("config.lazy")
