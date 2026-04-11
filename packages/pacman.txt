@@ -12,7 +12,6 @@ pango
 
 base-devel
 git
-zsh
 neovim
 npm
 openssh
@@ -36,4 +35,3 @@ wireplumber
 qutebrowser
 syncthing
 clamav
-rbw

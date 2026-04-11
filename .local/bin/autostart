@@ -6,8 +6,6 @@ fi
 
 /home/jamie/.local/bin/set-rand-wallpaper &
 
-foot rbw unlock
-
 sudo pacman -S --needed --noconfirm - < /home/jamie/.local/src/dotfiles/packages/pacman.txt
 
 sudo pacman -Syu --noconfirm
